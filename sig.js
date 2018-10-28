@@ -258,6 +258,4 @@ function linear(sys){
   }
 }
 
-function timeinvariant(sys){}
-
-function kausal(sys){}
+function homogen(){}
