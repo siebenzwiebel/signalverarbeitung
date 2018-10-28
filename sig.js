@@ -257,7 +257,3 @@ function linear(sys){
     return "false";
   }
 }
-
-function timeinvariant(sys){}
-
-function kausal(sys){}
