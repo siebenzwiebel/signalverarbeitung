@@ -1,0 +1,42 @@
+<html>
+<head>
+  <script type="text/javascript" src="sig.js"></script>
+  <link rel="stylesheet" href="sig.css">
+</head>
+<body>
+  <h1>SigV Extravaganza</h1>
+  Sig1
+  <input id="s1" type=text /><br /><br />
+  Sig2
+  <input id="s2" type=text /><br /><br />
+  <a href="#" onclick="ops()">GO</a>
+  <p>signals<br /><br />
+    a1 = 1+delta(k)-2.4*delta(k-3)<br />
+    a2 = 1-2.4*delta(k)+2*(k-3)<br />
+    a3 = epsilon(k-1)-2.4*delta(k-3)<br />
+    a4 = delta(k)-2.4*epsilon(k-1)<br />
+    a5 = delta(k)-2.4*epsilon(k-2)<br />
+    a6 = math.cos(math.pi*k/2)+delta(k-2)<br />
+    a7 = math.sin(math.pi*k/2)+delta(k-2)<br />
+    a8 = (k-2)*epsilon(k)-delta(k-2)<br />
+    a9 = epsilon(k)-2.4*delta(k-2)<br />
+    a10 = epsilon(k)*((-1)^k)-delta(k-2)<br /><br />
+
+  operations<br /><br />
+    op1 = x1(k)<br />
+    op2 = x2(k)<br />
+    op3 = x1(k)+x2(k)<br />
+    op4 = -2*x1(k)<br />
+    op5 = x1(k-2)<br /><br />
+
+  systems<br /><br />
+    sys1 = x(k)-2x(k-1)<br />
+    sys2 = x(2k)<br />
+    sys3 = (epsilon(k-1)-epsilon(k-2))*x(k)<br />
+    sys4 = abs(x(k))<br />
+    sys5 = 3*x(k)+1<br />
+    sys6 = x(k-1)^2<br /><br /></p>
+  <p id="results"></p>
+</body>
+
+</html>
