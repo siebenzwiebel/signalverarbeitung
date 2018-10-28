@@ -158,7 +158,7 @@ function ops(){
         var append = "<td>" + x[j].toString() + "</td>";
         string += append;
       }
-      string += "<td>" + linear(x) + "</td>";
+      string += "<td>" + additiv(x) + "</td>";
       string += "</tr>";
     }
     loop++;
@@ -227,7 +227,7 @@ function epsilon(k){
 
 // IS IT LTI OR IS IT NOT?
 
-function linear(sys){
+function additiv(sys){
   var n;
 
   for (n=0; n <= 3; n++){
