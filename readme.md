@@ -1,8 +1,8 @@
 # Signalverarbeitung
 
-Hochschule Düsseldorf
-Modul: Signalverarbeitung
-Praktikumsaufgabe 1
+* Hochschule Düsseldorf
+* Modul: Signalverarbeitung
+* Praktikumsaufgabe 1
 
 # howto
 
