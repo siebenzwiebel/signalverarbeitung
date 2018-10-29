@@ -62,7 +62,7 @@ function ops() {
   for (m1 = 0; m1 <= 4; m1++) {
     n.forEach(function(y) {
       var ding1 = ops[m1][y] - 2 * ops[m1][y - 1];
-      var dinga1 = ops[m1][(2 * (y - 2)) + 2] - 2 * ops[m1][((2 * (y - 2)) + 2) - 1];
+      var dinga1 = (2*ops[m1][y]) - 2 * (ops[m1][y - 1]);
       console.log("DING: " + dinga1);
       var ading1 = 2 * (ops[m1][y] - 2 * ops[m1][y - 1]);
       console.log("DONG: " + ading1);
@@ -75,7 +75,7 @@ function ops() {
   for (m2 = 0; m2 <= 4; m2++) {
     n.forEach(function(y) {
       var ding2 = ops[m2][2 * (y - 1)];
-      var dinga2 = ops[m2][((2 * (2 * (y - 2))) + 2) - 1];
+      var dinga2 = 2 * ops[m2][2 * (y - 1)];
       console.log("DING: " + dinga2);
       var ading2 = 2 * ops[m2][2 * (y - 1)];
       console.log("DONG: " + ading2);
@@ -88,7 +88,7 @@ function ops() {
   for (m3 = 0; m3 <= 4; m3++) {
     n.forEach(function(y) {
       var ding3 = ops[m3][y] * (epsilon((y - 2) - 1) - epsilon((y - 2) - 2));
-      var dinga3 = ops[m3][(((2 * (y - 2)) + 2) - 1)] * (epsilon((2 * (y - 2)) - 1) - epsilon((2 * (y - 2)) - 2));
+      var dinga3 = (2 * ops[m3][y]) * (epsilon((y - 2) - 1) - epsilon((y - 2) - 2));
       console.log("DING: " + dinga3);
       var ading3 = 2 * (ops[m3][y] * (epsilon((y - 2) - 1) - epsilon((y - 2) - 2)));
       console.log("DONG: " + ading3);
@@ -101,7 +101,7 @@ function ops() {
   for (m4 = 0; m4 <= 4; m4++) {
     n.forEach(function(y) {
       var ding4 = Math.abs(ops[m4][y]);
-      var dinga4 = Math.abs(ops[m4][(2 * (y - 2)) + 2]);
+      var dinga4 = Math.abs(2*ops[m4][y]);
       console.log("DING: " + dinga4);
       var ading4 = 2 * Math.abs(ops[m4][y]);
       console.log("DONG: " + ading4);
@@ -114,7 +114,7 @@ function ops() {
   for (m5 = 0; m5 <= 4; m5++) {
     n.forEach(function(y) {
       var ding5 = 3 * ops[m5][y] + 1;
-      var dinga5 = 3 * ops[m5][((2 * (y - 2)) + 2)] + 1;
+      var dinga5 = 3 * (2*ops[m5][y]) + 1;
       console.log("DING: " + dinga5);
       var ading5 = 2 * 3 * ops[m5][y] + 1;
       console.log("DONG: " + ading5);
@@ -127,7 +127,7 @@ function ops() {
   for (m6 = 0; m6 <= 4; m6++) {
     n.forEach(function(y) {
       var ding6 = Math.pow(ops[m6][y - 1], 2);
-      var dinga6 = Math.pow(ops[m6][((2 * (y - 2)) - 2) - 1], 2);
+      var dinga6 = Math.pow((2*ops[m6][y - 1]), 2);
       console.log("DING: " + ading6);
       var ading6 = 2 * Math.pow(ops[m6][y - 1], 2);
       console.log("DONG: " + ading6);
@@ -162,8 +162,9 @@ function ops() {
 
   var l;
   var j;
-  string += "<table><thead></thead><tbody><tr><td>SYS</td><td>OP</td><td>y(0)</td><td>y(1)</td><td>y(2)</td><td>y(3)</td><td>ADDITIV?</td></tr>";
+  string += "<table><thead></thead><tbody><tr><td>SYS</td><td>OP</td><td>y(0)</td><td>y(1)</td><td>y(2)</td><td>y(3)</td><td>ADDITIV?</td><td>HOMOGEN?</td><td>LINEAR?</td></tr>";
   var loop = 1;
+  var linear = "false"
   systems.forEach(function(x) {
     for (l = 0; l <= 4; l++) {
       string += "<tr class='color" + (loop % 2) + "'><td>sys" + loop + "</td><td>op" + (l + 1) + "</td>";
@@ -172,7 +173,13 @@ function ops() {
         var append = "<td>" + x[j].toString() + "</td>";
         string += append;
       }
-      string += "<td>" + additiv(x) + "</td>";
+      if (additiv(x) == "true" && homogen(systemsa[loop-1], asystems[loop-1]) == "true"){
+        linear = true;
+      }
+      else {
+        linear = false;
+      }
+      string += "<td>" + additiv(x) + "</td><td>" + homogen(systemsa[loop-1], asystems[loop-1]) + "</td><td>" + linear + "</td>";
       string += "</tr>";
     }
     loop++;
