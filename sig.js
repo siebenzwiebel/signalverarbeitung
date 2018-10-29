@@ -251,16 +251,16 @@ function additiv(sys) {
     var a = parseFloat(sys[n]);
     var b = parseFloat(sys[n + 4]);
     var c = parseFloat(sys[n + 8]);
-
+    console.log(a + "+" + b + "=" + c);
     if ((a + b) == c) {} else {
       check += 1;
     }
 
   }
-  if (check == 0.000) {
-    return "true";
-  } else {
+  if (check != 0.000) {
     return "false";
+  } else {
+    return "true";
   }
 }
 
