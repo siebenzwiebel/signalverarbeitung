@@ -252,12 +252,13 @@ function additiv(sys) {
     var b = parseFloat(sys[n + 4]);
     var c = parseFloat(sys[n + 8]);
     console.log(a + "+" + b + "=" + c);
-    if ((a + b) == c) {} else {
+    if ((a + b) != c) {
       check += 1;
+    } else {
     }
 
   }
-  if (check != 0.000) {
+  if (check != 0) {
     return "false";
   } else {
     return "true";
