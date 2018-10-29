@@ -62,7 +62,7 @@ function ops() {
   for (m1 = 0; m1 <= 4; m1++) {
     n.forEach(function(y) {
       var ding1 = ops[m1][y] - 2 * ops[m1][y - 1];
-      var dinga1 = (2*ops[m1][y]) - 2 * (ops[m1][y - 1]);
+      var dinga1 = (2*ops[m1][y]) - 2 * ( 2 * ops[m1][y - 1]);
       console.log("DING: " + dinga1);
       var ading1 = 2 * (ops[m1][y] - 2 * ops[m1][y - 1]);
       console.log("DONG: " + ading1);
